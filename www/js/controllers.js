@@ -23,8 +23,8 @@ angular.module('vllaznia.controllers', [])
       return function(input)
       {
         if(input == null){ return ""; }
-        //var value = input.split("+");
-        var _date = $filter('date')(new Date(input,'dd/MM/yyyy - HH:mm');
+        var value = input;
+        var _date = $filter('date')(new Date(input),'dd/MM/yyyy - HH:mm');
         return _date;
       };
      })
