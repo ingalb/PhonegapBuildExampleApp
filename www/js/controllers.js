@@ -228,11 +228,12 @@ angular.module('vllaznia.controllers', [])
             $scope.content = data.kronika;
             //d1 = new Date('2014 05 13 21:00:00');
             d1 = new Date(data.data);
-            time = (tani-d1)/(1000*60);
+            time = ((tani.getTime() - d1.getTime()) * 1000 * 60);
+            //time = (tani-d1)/(1000*60);
             if(time<0){minuti=" ";percenti="0"; $scope.minuta = minuti;}
             else if(time>0 && time<46){mininuti=time; percenti=time; $scope.minuta = Math.floor(minuti);}
-            else if(time>47 && time<60){minuti="HT"; percenti="45"; $scope.minuta = minuti;}
-            else if(time>60 && time<107){minuti=(time-15); percenti=(time-15); $scope.minuta = Math.floor(minuti);}
+            else if(time>47 && time<62){minuti="HT"; percenti="45"; $scope.minuta = minuti;}
+            else if(time>62 && time<107){minuti=(time-15); percenti=(time-15); $scope.minuta = Math.floor(minuti);}
             else {minuti="FT"; percenti="90"; $scope.minuta = minuti;}
             $scope.percent = Math.floor(percenti/90*100);
             $scope.data = d1;
@@ -261,7 +262,8 @@ angular.module('vllaznia.controllers', [])
             $scope.item = data;
             $scope.content = data.kronika;
             d1 = new Date(data.data);
-            time = (tani-d1)/(1000*60);
+            time = ((tani.getTime() - d1.getTime()) * 1000 * 60);
+            //time = (tani-d1)/(1000*60);
             if(time<0){minuti=" ";percenti="0"; $scope.minuta = minuti;}
             else if(time>0 && time<46){minuti=time; percenti=time; $scope.minuta = Math.floor(minuti/90*100);}
             else if(time>48 && time<60){minuti="HT"; percenti="45"; $scope.minuta = minuti;}
