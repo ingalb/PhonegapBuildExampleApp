@@ -19,6 +19,16 @@ angular.module('vllaznia.controllers', [])
      };
     })
 
+    .filter('ndeshjeData', function($filter){
+      return function(input)
+      {
+        if(input == null){ return ""; }
+        //var value = input.split("+");
+        var _date = $filter('date')(new Date(input,'dd/MM/yyyy - HH:mm');
+        return _date;
+      };
+     })
+
   .filter('orderObjectBy', function() {
    return function(items, field, reverse) {
     var filtered = [];
@@ -227,7 +237,7 @@ angular.module('vllaznia.controllers', [])
             $scope.item = data;
             $scope.content = data.kronika;
             //d1 = new Date('2014 05 13 21:00:00');
-            d1 = new Date(data.data);
+            d1 = new Date(data.orari);
             time = ((tani.getTime() - d1.getTime())/ (1000 * 60));
             //time = (tani-d1)/(1000*60);
             if(time<0){minuti=" ";percenti="0"; $scope.minuta = minuti;}
@@ -236,7 +246,7 @@ angular.module('vllaznia.controllers', [])
             else if(time>62 && time<107){minuti=(time-15); percenti=(time-15); $scope.minuta = Math.floor(minuti);}
             else {minuti="FT"; percenti="90"; $scope.minuta = minuti;}
             $scope.percent = Math.floor(percenti/90*100);
-            $scope.data = d1;
+            //$scope.orari = ;
             //console.log(time+' '+percenti+' '+$scope.minuta);
             $ionicSlideBoxDelegate.update();
             $ionicScrollDelegate.resize();
@@ -261,7 +271,7 @@ angular.module('vllaznia.controllers', [])
             tani = new Date();
             $scope.item = data;
             $scope.content = data.kronika;
-            d1 = new Date(data.data);
+            d1 = new Date(data.orari);
             time = ((tani.getTime() - d1.getTime()) / 60000);
             //time = (tani-d1)/(1000*60);
             if(time<0){minuti=" ";percenti="0"; $scope.minuta = minuti;}
