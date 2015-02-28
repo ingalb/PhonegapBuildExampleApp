@@ -1,0 +1,45 @@
+<ion-view title="Fkvllaznia App">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+     <div>
+     <ion-slide-box show-pager="true" does-continue="true" slide-interval="5000" disable-scroll="false">
+        <ion-slide ng-repeat="slide in slider">
+            <a href="#/app/lajmi/{{$index + 1}}">
+               <img class="slider-img" ng-src="http://www.fkvllaznia.net/main/vllaznia/_files/newspublish/{{slide.image}}">
+               <div class="slider-text">
+                   {{slide.title}}
+               </div>
+           </a>
+        </ion-slide>
+     </ion-slide-box>
+     </div>
+     <div class="row item item-divider bar bar-assertive statistika">
+        <h1 class="title">Ndeshjet e fundit</h1>
+     </div>
+     <div>
+         <div ng-hide="loadNdeshje">
+           <div class="spinner">
+             <div class="double-bounce1"></div>
+             <div class="double-bounce2"></div>
+           </div>
+         </div>
+         <div class="rnk" ng-repeat="ndeshje in items">
+           <div ng-click="go('{{ndeshje.id}}')">
+               <div class="row">
+               	   <div class="col col-center"><span>{{ndeshje.data | indexData}}</span></div>
+               </div>
+               <div class="row">
+                   <div class="col col-center Vllaznia"><img class="rank" ng-src="http://www.albaniasoccer.com/{{ndeshje.logo1_m}}"><br>{{ndeshje.team1}}</div>
+                   <div class="col col-33 col-center">
+                       <div ng-if="ndeshje.over==0"><a class="rezultati"><span class="badge badge-assertive rezultati padding">{{ndeshje.gol1}}</span>-<span class="badge badge-assertive rezultati padding">{{ndeshje.gol2}}</span></a></div>
+                       <div ng-if="ndeshje.over>0" class="assertive"><a class="rezultati assertive">{{ndeshje.gol1_over}} - {{ndeshje.gol2_over}}</a></div>
+                   </div>
+                   <div class="col col-center Vllaznia"><img class="rank" ng-src="http://www.albaniasoccer.com/{{ndeshje.logo2_m}}"><br>{{ndeshje.team2}}</div>
+               </div>
+           </div>
+         </div>
+     </div>
+  </ion-content>
+</ion-view>
