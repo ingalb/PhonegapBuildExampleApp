@@ -228,7 +228,7 @@ angular.module('vllaznia.controllers', [])
             $scope.content = data.kronika;
             //d1 = new Date('2014 05 13 21:00:00');
             d1 = new Date(data.data);
-            time = ((tani.getTime() - d1.getTime()) * 1000 * 60);
+            time = ((tani.getTime() - d1.getTime())/ (1000 * 60));
             //time = (tani-d1)/(1000*60);
             if(time<0){minuti=" ";percenti="0"; $scope.minuta = minuti;}
             else if(time>0 && time<46){mininuti=time; percenti=time; $scope.minuta = Math.floor(minuti);}
@@ -262,7 +262,7 @@ angular.module('vllaznia.controllers', [])
             $scope.item = data;
             $scope.content = data.kronika;
             d1 = new Date(data.data);
-            time = ((tani.getTime() - d1.getTime()) * 1000 * 60);
+            time = ((tani.getTime() - d1.getTime()) / 60000);
             //time = (tani-d1)/(1000*60);
             if(time<0){minuti=" ";percenti="0"; $scope.minuta = minuti;}
             else if(time>0 && time<46){minuti=time; percenti=time; $scope.minuta = Math.floor(minuti/90*100);}
