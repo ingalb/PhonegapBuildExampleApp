@@ -38,6 +38,9 @@
                    </div>
                    <div class="col col-center Vllaznia"><img class="rank" ng-src="http://www.albaniasoccer.com/{{ndeshje.logo2_m}}"><br>{{ndeshje.team2}}</div>
                </div>
+               <div class="progress" ng-show="$index == 0">
+                  <div class="progress-striped {{color}}" style="width: {{ticker(ndeshje.data, $index)}}%;"></div>
+               </div>
            </div>
          </div>
      </div>

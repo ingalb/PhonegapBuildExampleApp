@@ -53,6 +53,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
      document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
                                 var notification = event.notification;
+                                window.localStorage["notification"] = JSON.stringify(notification);
                                 var PopNotification;
                                 try {
                                   PopNotification = $ionicPopup.alert({
@@ -79,7 +80,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
     }
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
-      //StatusBar.styleDefault();
+      StatusBar.styleDefault();
     }
 
   });

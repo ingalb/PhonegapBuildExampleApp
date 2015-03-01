@@ -50,7 +50,7 @@ angular.module('vllaznia.controllers', [])
         if(navigator.splashscreen){
            navigator.splashscreen.hide();
         }
-
+        $scope.live = true;
         $scope.loadNdeshje = false;
         $scope.go = function ( path ) {
           //alert(path);
@@ -93,13 +93,42 @@ angular.module('vllaznia.controllers', [])
 
 
      (function update() {
-        $timeout(update, 1200);
+        $timeout(update, 12000);
         NdeshjetService.getSuperligaLastNdeshje(function(data) {
             //console.log(tani);
             //$scope.items = data;
             $scope.items = data.slice(0,2);
         });
        }());
+
+       $scope.ticker = function(orari, index) {
+         if (index)
+           { var w = 100;
+           return w;
+         }
+         else{
+         //var tani = new Date('Wed, 05 Mar 2015 15:10:00 +0000');
+         var tani = new Date();
+         //console.log(tani);
+         var w = "0";
+         var percenti;
+         //console.log(orari);
+         d1 = new Date(orari);
+         //console.log(d1);
+         time = ((tani.getTime() - d1.getTime())/ (1000 * 60));
+         //console.log(time);
+         if(time<0){minuti=" ";percenti="0"; $scope.live = false;}
+         else if(time>0 && time<46){percenti=time; $scope.color = "p-green";}
+         else if(time>47 && time<62){percenti="45"; $scope.color = "p-orange";}
+         else if(time>62 && time<107){percenti=(time-15); $scope.color = "p-green"; }
+         else if (time > 108 ){ percenti="90"; $scope.color = "p-red";}
+         else { percenti="90";}
+         //console.log(percenti);
+         w = Math.floor(percenti/90*100);
+
+         return w;
+       }
+      }
 
       $timeout(function(){
         $ionicLoading.hide();
