@@ -58,7 +58,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.statusbar" />
-    <gap:plugin name="com.testfairy.cordova-plugin" />
+    <gap:plugin name="com.testfairy.cordova-plugin" source="plugins.cordova.io"/>
 
 
     <!-- Define app icon for each platform. -->
