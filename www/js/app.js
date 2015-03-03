@@ -12,6 +12,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
     try{
         ga_storage._setAccount('UA-2341193-9');
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
+        TestFairy.begin("71e04164f3001d59ab99742f8ea9e9b705e72e14");
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
 
         admob.setOptions({
